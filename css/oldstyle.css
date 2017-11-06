@@ -1,3 +1,4 @@
+<!-- OLD STYLE.CSS -->
 /* Website template by freewebsitetemplates.com */
 body {
 	background: url(../images/bg-body.jpg) repeat;
@@ -9,10 +10,10 @@ body {
 	padding: 0;
 }
 a {
-	
+
 }
 img {
-	
+
 }
 p {
 	margin: 0;
@@ -40,15 +41,15 @@ div.header div {
 	float: left;
 	margin: 39px 0 0;
 }
-div.header div a, 
-div.body div div:first-child a, 
+div.header div a,
+div.body div div:first-child a,
 div.body div:first-child div.footer ul li a,
 div.body div:first-child div.body div a {
 	display: inline-block;
 }
 div.header form {
 	background: url(../images/interface.png) no-repeat 0 -160px;
-	float: right;	
+	float: right;
 	height: 32px;
 	margin: 72px 20px 0 0;
 	overflow: hidden;
@@ -147,7 +148,7 @@ div.body div:first-child div.body ul li {
 	margin: 0 0 0 1px;
 	overflow: hidden;
 	text-transform: none;
-	width: 236px;	
+	width: 236px;
 }
 div.body div:first-child div.body ul li:first-child {
 	background: none;
@@ -230,7 +231,7 @@ div.body div:first-child div.footer ul li h2 {
 	font-size: 20px;
 	height: 49px;
 	letter-spacing: 0.025em;
-	line-height: 49px;  
+	line-height: 49px;
 	text-transform: uppercase;
 }
 div.body div:first-child div.footer ul li h2 a {
@@ -241,7 +242,7 @@ div.body div:first-child div.footer ul li h2 a {
 	text-shadow: 0 1px #f7f0e7;
 }
 div.body div:first-child div.footer ul li img {
-	border-bottom: 1px solid #fcda55; 
+	border-bottom: 1px solid #fcda55;
 	border-top: 1px solid #fcda55;
 }
 div.body div:first-child div.footer ul li:first-child {
@@ -472,14 +473,14 @@ div.body div#content div div ol.ingredients {
 	list-style: none;
 	margin: 0 0 20px;
 	overflow: hidden;
-	padding: 0; 
+	padding: 0;
 }
 div.body div#content div div ol.ingredients li {
 	color: #6C5B37;
 	float: left;
 	line-height: 24px;
 	padding: 0;
-	width: 300px; 
+	width: 300px;
 }
 div.body div#content div div img {
 	margin: 20px  0;
@@ -585,7 +586,7 @@ div.body div#content div ul li div h3 a:hover {
 }
 div.body div#content div ul li div p {
 	color: #6C5B37;
-	padding: 0; 
+	padding: 0;
 }
 div.body div#content div ul li div p a,
 div.body div#content div div ul li p a {
@@ -608,4 +609,4 @@ div.footer div p {
 	letter-spacing: 0.075em;
 	line-height: 70px;
 	text-align: center;
-}
+}o

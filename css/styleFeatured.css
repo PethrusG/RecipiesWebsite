@@ -1,0 +1,190 @@
+/* Website template by freewebsitetemplates.com */
+body {
+	background: url(../images/bg-body.jpg) repeat;
+	color: #6c5b37;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	min-width: 960px;
+	padding: 0;
+}
+
+
+p {
+	margin: 0;
+	line-height: 24px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+div.header {
+	background: url(../images/stripe1.gif) repeat-x left top;
+	height: 145px;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 960px;
+}
+div.header div {
+	float: left;
+	margin: 39px 0 0;
+}
+div.body {
+	margin: 20px auto 0;
+	overflow: hidden;
+	width: 960px;
+}
+div.body div:first-child {
+	float: left;
+	height: auto;
+	margin: 5px 0 0;
+	width: 716px;
+}
+div.body div:first-child div.header {
+	background: url(../images/interface.png) no-repeat;
+	height: 35px;
+	padding: 7px 0 0 8px;
+	margin: 0 0 0 3px;
+	width: 702px;
+}
+
+div.body div:first-child div.header ul li {
+	float: left;
+	margin: 0 13px;
+	text-transform: uppercase;
+}
+div.body div:first-child div.header ul li a {
+	color: #fffcdf;
+	display: block;
+	height: 29px;
+	font-size: 12px;
+	letter-spacing: 0.075em;
+	line-height: 29px;
+	padding: 0 10px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px #81725c;
+}
+
+div.body div:first-child div.header ul li a:hover {
+	color: #FFF;
+}
+div.body div:first-child div.body {
+	background: none;
+	float: none;
+	height: auto;
+	margin: 0;
+	width: auto;
+}
+
+
+
+
+div.body div div:first-child {
+	float: none;
+	height: auto;
+	margin: 0;
+	width: auto;
+}
+
+div.body div div h3,
+div.body div div h4 {
+	color: #850028;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 18px;
+	letter-spacing: 0.05em;
+	line-height: 24px;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+div.body div div h4 {
+	margin: 30px 0 5px;
+	text-transform: none;
+}
+
+
+
+
+
+
+div.body div#content {
+	background: url(../images/bg-content-top.jpg) no-repeat center top;
+	border-radius: 0;
+	height: auto;
+	margin: 0 0 0 3px;
+	padding: 2px 0 0;
+	width: 710px;
+}
+div.body div#content div {
+	background:  #f0ece3 url(../images/bg-content-bottom.gif) no-repeat center bottom;
+	border-radius: 0;
+	height: auto;
+	padding: 13px 0 36px;
+	width: 710px;
+}
+div.body div#content div div {
+	background: none;
+	padding: 0 25px;
+	width: auto;
+}
+div.body div#content div div p {
+	padding: 0;
+}
+div.body div#content div div ol.directions {
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+div.body div#content div div ol.directions li {
+	line-height: 24px;
+}
+div.body div#content div div h3 {
+	padding: 7px 0 0;
+	text-transform: none;
+}
+div.body div#content div div h5 {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0 0 10px;
+}
+div.body div#content div div ol.ingredients {
+	list-style: none;
+	margin: 0 0 20px;
+	overflow: hidden;
+	padding: 0;
+}
+div.body div#content div div ol.ingredients li {
+	color: #6C5B37;
+	float: left;
+	line-height: 24px;
+	padding: 0;
+	width: 300px;
+}
+div.body div#content div div img {
+	margin: 20px  0;
+}
+div.footer {
+	background: url(../images/stripe2.gif) repeat-x left bottom;
+	height: auto;
+	margin: 0 auto;
+	width: 960px;
+}
+div.footer div {
+	height: 80px;
+	width: 716px;
+}
+div.footer div p {
+	color: #aaa292;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	letter-spacing: 0.075em;
+	line-height: 70px;
+	text-align: center;
+}
+div.footer div img {
+	display: block;
+	width: 716px;
+}
+sty

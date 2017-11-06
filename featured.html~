@@ -92,22 +92,7 @@
                     <button>Send</button>
                 </div>
             </div>
-        </form>	<div class="section group">
-            <div class="col span_4_of_4">
-                <p class="author">
-                    Kalle:
-                </p>
-                <p class="entry">
-                    Hej där!
-                </p>
-                <p class="author">
-                    Lisa:
-                </p>
-                <p class="entry">
-                    Vi bor vid en å nära en ö. Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.Vi bor vid en å nära en ö.
-                </p>
-            </div>
-        </div>
+        </form>	
 					</div>
 				</div>
 			</div>
