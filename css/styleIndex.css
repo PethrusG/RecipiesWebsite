@@ -34,14 +34,6 @@ div.header div {
 	float: left;
 	margin: 39px 0 0;
 }
-div.header form {
-	background: url(../images/interface.png) no-repeat 0 -160px;
-	float: right;
-	height: 32px;
-	margin: 72px 20px 0 0;
-	overflow: hidden;
-	width: 434px;
-}
 div.body {
 	margin: 20px auto 0;
 	overflow: hidden;
@@ -83,6 +75,10 @@ div.body div:first-child div.header ul li.current a {
 }
 div.body div:first-child div.header ul li a:hover {
 	color: #FFF;
+}
+div.body div:first-child div.body p{
+	font-size: 20px;
+	color:#6c5b37;
 }
 div.body div:first-child div.body {
 	background: none;

@@ -1,1 +1,68 @@
-Outl
+Outline över rapporten:
+
+Översiktligt:
+
+I. Intro
+  - Explain the task and the requirements on the solution.
+  - Clearly state the requirements.
+
+II. Literature Study
+  - State what you have read and briefly summarize
+    what you have learnt.
+
+III. Method
+  - HOW did you work when solving the tasks. HOW did you EVALUATE
+    that your solution met the requirements. Which dev tools and IDEs
+    did you use. DON't explain your solution.
+
+IV. Result
+  - EXPLAIN your code. PROVE that it meets the requirements. State
+    that EACH REQUIREMENT is met. Explain HOW you met it. Links to code in
+    Git repo, user interface screenshots, other figures to illustrate.
+      * How to demonstrate that each requirement is met
+        + Inspection, explain why it is met
+        + External tests: web browsers, validation -> screenshots
+        + Figures? No...or?
+        + Include links to code in Git repository
+KLAR      * OBS!! CSS layouten. FÖRKLARA BÄTTRE!
+KLAR      * OBS! Gör index-sidan INFORMATIVE. Skriv något mer!
+KLAR      * OBS! Add LINKS to GitHub to all of the references to code!
+      * OBS! Explicit CSS, hur VET vi att det är tillräckligt?
+      * OBS! Add validation screenshots!
+      * OBS! Add browser screenshots!
+SENT      * OBS Förklara samtliga heuristics
+      * Om tid, mergea calendar pages
+MÅSTE * Committa till GitHub
+
+SENT V. Discussion
+  - ANALYZE the the RESULT presented previously. Summarize the requirements
+    and state which one of them you have met. What have you learned? What
+    problems did you face? How were problems solved? Should you have done
+    something differently?
+
+SENT VI. Comments about the course
+  - Any comment(s) related to this course oﬀering or to coming oﬀerings
+    is much appreciated. Please also tell approximately how much time you
+    spent on the assignment, including lectures and exercises.
+    This is of great help for course evaluation.
+
+
+Generellt:
+  - Genom att FÖRKLARA källkoden kan du visa på att du genomfört
+    arbetet själv och förstår koden.
+
+I detalj:
+
+I. Task:
+   Requirements:
+
+
+II.
+
+III.
+
+IV.
+
+V.
+
+VI.
