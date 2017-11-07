@@ -34,12 +34,6 @@ div.header div {
 	float: left;
 	margin: 39px 0 0;
 }
-div.header div a,
-div.body div div:first-child a,
-div.body div:first-child div.footer ul li a,
-div.body div:first-child div.body div a {
-	display: inline-block;
-}
 div.header form {
 	background: url(../images/interface.png) no-repeat 0 -160px;
 	float: right;

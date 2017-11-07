@@ -1,3 +1,47 @@
+
+KVAR tisdag eftermiddag:
+* 5 of 10 heuristics
+* Understand all code including CSS!
+* Promote calendar page?
+* Work in all browsers
+* Validate all code
+* RAPPORTEN!!!
+  - Var beredd på:
+  At the end of the seminar, there will be a final presentation
+  where a randomly chosen person from each group will give a
+  five-minute presentation of their own solution to the
+  entire seminar.
+
+IMPLEMENT TASTY RECIPIES:
+* All requirementes of site mapping fulfilled:
+  - Whole site
+    + Index page
+    + Calendar page
+    + 2 recipe pages
+    + Links between all sites by menus.
+    + Explicit layout for all pages.
+      ^ Fonts, colors, mouse hovering, links, icons, images,
+        all other properties
+    + Reset css files on all pages
+  - index
+    + Welcoming, informative
+    + Promote calendar page
+  - Recipie pages
+    + Name of dish
+    + Image of prepade dish
+    + List of ingredients
+    + Instructions how to make it
+    + User comments
+  - Calendar page
+    + One month
+    + Clickable images that go to corresponding recipies
+    + Two days with dishes, pancakes, meatballs
+* All HTML and CSS files validated
+* 5 of 10 heuristics
+* Should work in all browsers
+
+
+
 Kvar att göra:
 * Lägga in all text
   - Recepten med bilder

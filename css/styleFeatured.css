@@ -67,7 +67,10 @@ div.body div:first-child div.header ul li a {
 	text-decoration: none;
 	text-shadow: 1px 1px 1px #81725c;
 }
-
+div.body div:first-child div.header ul li.current a {
+	background: url(../images/bg-menuselected.jpg) repeat-x;
+	color: #FFF;
+}
 div.body div:first-child div.header ul li a:hover {
 	color: #FFF;
 }
@@ -78,10 +81,6 @@ div.body div:first-child div.body {
 	margin: 0;
 	width: auto;
 }
-
-
-
-
 div.body div div:first-child {
 	float: none;
 	height: auto;
@@ -187,4 +186,3 @@ div.footer div img {
 	display: block;
 	width: 716px;
 }
-sty
