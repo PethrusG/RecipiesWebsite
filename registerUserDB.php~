@@ -1,0 +1,110 @@
+<?php session_start() ?>
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<title> Register new user </title>
+    </head>
+    <body>
+	<?php
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+	    $newUserName = $_REQUEST['newUserName'];
+	    $newPassword = $_REQUEST['newPassword'];
+
+	    // Set session variables
+	    $_SESSION["user"] = $newUserName;
+	    
+	    // echo "New User: " . $newUserName;
+	    // echo "New Password: " . $newPassword
+
+	    //     if (empty($name)) {
+	    //         echo "Name is empty";d
+	    //     } else {
+	    //         echo $name;
+	    //     }
+	}
+
+	// TODO: Ändra databasnamn till något neutralt som "databas"
+	// Ha sedan TVÅ TABELLER i databasen, 'users' och 'comments'
+	// Comments behöver ha kolumner som beskriver vem som skrev dem.
+	// Kommentarerna måste också alltid visas i rätt ordning.
+	// Kanske: namn, kommentar, datum för kommentaren, ordningen
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "MySQLPethrus15";
+	$nameDB = "recipies";
+	$userTB = "users";
+	$commentTB = "comments";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $nameDB);
+
+	// Check connection
+	if (!$conn) {
+	    echo "No connection";
+	    die("Connection failed: " . mysqli_connect_error());
+	}
+	echo "Connected successfully <br>";
+
+	// Create database
+	// $usersDB = "users";
+	// $createDB = "CREATE DATABASE users";
+	// if ($conn->query($createDB) === TRUE) {
+	//     echo "Database created successfully <br>";
+	// } else {
+	//     echo "Error creating database: <br>" . $conn->error;
+	// }
+
+	// $useTB = "USE" . $usersDB;
+	//
+	// if ($conn->query($usersDB) === TRUE) {
+	//     echo "Using table successfully <br>";
+	// } else {
+	//     echo "Error using table: <br>" . $conn->error;
+	// }
+
+	// $createTB = "CREATE TABLE login
+	//    (
+	//    id INT unsigned NOT NULL AUTO_INCREMENT,
+	//    name VARCHAR(150) NOT NULL,
+	//    password VARCHAR(150) NOT NULL,
+	//    PRIMARY KEY (id)
+	//  )";
+	//
+	// if ($conn->query($createTB) === TRUE) {
+	//     echo "Table created successfully <br>";
+	// } else {
+	//     echo "Error creating table: <br>" . $conn->error;
+	// }
+
+	// Add new user to table
+	$addUser = "INSERT INTO $userTB (name, password) VALUES
+  ('$newUserName', '$newPassword')";
+
+	if ($conn->query($addUser) === TRUE) {
+	    echo "User added successfully <br>";
+	} else {
+	    echo "Error adding user: <br>" . $conn->error;
+	}
+
+	echo 	"Current user according to SESSION: " . $_SESSION["user"];
+	// $checkAdded = "SELECT * FROM " . $userDB;
+
+	$conn->close();
+
+	?>
+	<h3> Welcome <?php $_SESSION["user"] ?>, you're now registered! </h3>
+	<form action ="commentsLoggedIn.php">
+	    <input type ="submit" value = "Back to recipies">
+	</form>
+	<!-- <?php 
+	     header("Location:commentsLoggedIn.php");
+	     exit;
+	     ?> -->
+
+</body>
+</html>
+

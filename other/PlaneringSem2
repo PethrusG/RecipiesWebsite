@@ -1,0 +1,25 @@
+* Gör lite tutorials i PHP först
+* Kolla föreläsningarna, men
+  kolla särskilt den tillhörande koden och experimentera själv med den
+* Installera om apache2 på Ubuntu, tror den funkar på Lubuntun.
+* Gör först skiss över programmet
+  + Ännu bättre: Gör först en mycket enkel version av programmet
+    utan att behöva tänka på HTML/CSS. Se till att all backend funkar
+    och lägg sedan in den i vyn.
+
+Comments:
+
+Chronology  User  Comment CommentID
+
+* Vi behöver ett CommentID för att lätt kunna hitta en kommentar och radera den
+  vid behov.
+
+      Logik:
+      1. Användare vill skriva kommentar
+      2. Användare behöver logga in
+      3. Kolla mot databasen att användaren finns och har rätt lösenord.
+      4. Om finns och rätt lösenord får den skriva en kommentar.
+      5. Kommentaren laddas in i databasen i rätt kronologisk ordning.
+      6. Alla kommentarer hämtas upp från databasen och visas i webbläsaren.
+        - Hämtas kanske genom någon form av loop i databasen?
+        - echo "<html något> kommentar </html något>"
