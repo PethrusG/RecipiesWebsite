@@ -7,16 +7,12 @@
   <title> Register new user </title>
 </head>
 <body>
-  <form action="registerUserDB.php" method="post">
+  <form action="loginUserDB.php" method="post">
     User name:
-    <input type="text" name="newUserName"><br>
+    <input type="text" name="userName"><br>
     Password:
-    <input type="text" name="newPassword"><br>
-    Confirm password:
-    <input type="text" name="confirmPassword"><br>
+    <input type="text" name="password"><br>   
     <input type="submit" name="submitNewUser" value="Submit New User">
-  </form>
-  <form action="recipeMeatballsDynamicLoggedOut.php">
      <input type="submit" name="back" value="Back">
   </form>
 

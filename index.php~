@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
@@ -26,7 +27,7 @@
 	      <a href="recipePancakes.html">Pancakes</a>
 	    </li>
 	    <li>
-	      <a href="recipeMeatballsDynamicLoggedOut.php">Meatballs</a>
+	      <a href="recipeMeatballs.html">Meatballs</a>
 	    </li>
 	  </ul>
 	</div>
@@ -49,8 +50,8 @@
 	      <a href="calendar.html"><img src="images/featured.jpg" alt="Image"></a>
 	    </li>
 	    <li>
-		<h2><a href="recipeMeatballsDynamicLoggedOut.php">Meatballs</a></h2>
-	      <a href="recipeMeatballsDynamicLoggedOut.php"><img src="/images/meatballsAbsolute.jpg" alt="Image"></a>
+	      <h2><a href="recipeMeatballs.html">Meatballs</a></h2>
+	      <a href="recipeMeatballs.html"><img src="/images/meatballsAbsolute.jpg" alt="Image"></a>
 	    </li>
 	  </ul>
 	  <ul>

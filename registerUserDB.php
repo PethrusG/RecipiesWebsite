@@ -3,6 +3,8 @@
 <html>
     <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/styleFeatured.css">
 	<title> Register new user </title>
     </head>
     <body>
@@ -15,13 +17,7 @@
 	    $newPassword = $_REQUEST['newPassword'];
 
 	    // Set session variables
-	    $_SESSION["user"] = $newUserName;
-	    
-	    //     if (empty($name)) {
-	    //         echo "Name is empty";d
-	    //     } else {
-	    //         echo $name;
-	    //     }
+	    $_SESSION["user"] = $newUserName;	    	
 	}
 
 	$servername = "localhost";
@@ -36,23 +32,20 @@
 
 	// Check connection
 	if (!$conn) {
-	    echo "No connection";
 	    die("Connection failed: " . mysqli_connect_error());
 	}
-	echo "Connected successfully <br>";
 
 	// Add new user to table
 	$addUser = "INSERT INTO $userTB (name, password) VALUES
         ('$newUserName', '$newPassword')";
 
-	/* if ($conn->query($addUser) === TRUE) {
-	   echo "User added successfully <br>";
-	   } else {
-	   echo "Error adding user: <br>" . $conn->error;
-	   }*/
+	if ($conn->query($addUser) === TRUE) {
+	    // echo "User added successfully <br>";
+	} else {
+	    // echo "Error adding user: <br>" . $conn->error;
+	}
 
-	echo 	"Current user according to SESSION: " . $_SESSION["user"];
-	// $checkAdded = "SELECT * FROM " . $userDB;
+	// echo	"Current user according to SESSION: " . $_SESSION["user"];
 
 	?>
 	<h3> Welcome <?php $_SESSION["user"] ?>, you're now registered! </h3>
@@ -60,64 +53,34 @@
 	    <input type ="submit" value = "Back to recipies">
 	</form>
 	<br>
-	<h4>Comments:</h4>
 	<?php
 
 	// Retrieve all object of type Comment from DB
- 	$commentsFromDB = $conn->prepare("SELECT comment FROM commentsObj");
-	$commentsFromDB->execute();
-	$array = [];
-	foreach ($commentsFromDB->get_result() as $row)	{
-	    $array[] = $row['comment'];
-	}
-
-	// For use in other pages
-	$_SESSION["Comments"] = $array;
-	echo "SESSION contains: <br>";
-	print_r($_SESSION);
-
-	echo "This is array in registerUserDB.";
-	print_r($array);
-	echo $array[1]->getUser();
-	
-	/* foreach($array as $value){
-	   $unsUsComm = unserialize($value);
-	   $unsUsComm->getUserComment();
-	   echo "<br>";
+ 	/* $commentsFromDB = $conn->prepare("SELECT comment FROM commentsObj");
+	   $commentsFromDB->execute();
+	   $array = [];
+	   foreach ($commentsFromDB->get_result() as $row)	{
+	   $array[] = $row['comment'];
 	   }*/
 
+	// For use in other pages
+//	$_SESSION["Comments"] = $array;
+//	echo "SESSION contains: <br>";
+//	print_r($_SESSION);
+
+//	echo "This is array in registerUserDB.";
+//	print_r($array);
+//	echo $array[1]->getUser();
+
 	// Unserialize all object Comments from DB
-	$arrayUns = [];
-	for ($i = 0; $i < count($array); $i++){
-	    $arrayUns[$i] = unserialize($array[$i]);
-	}
+	/* $arrayUns = [];
+	   for ($i = 0; $i < count($array); $i++){
+	   $arrayUns[$i] = unserialize($array[$i]);
+	   }*/
 
 	// Display comments with user to the browser
-	foreach ($arrayUns as $value){ ?>
-	    <h3><?php  echo  $value->getUser(); ?> </h3>
-	    <i><?php  echo  $value->getComment(); ?> </i><?php 
-	} ?>
-
+?>
     </body>
-
-    <!-- 	//	print_r($array);
-	 echo "<br> Comments before unserialization: <br>";
-
-	 foreach($array as $value){
-	 echo $value . "<br>";
-	 }
-	 
-	 foreach($array as $value){	   
-	 $uns = unserialize($value);
-	 $uns->getComment();
-	 }
-
-	 echo "<br>";
-	 
-	 foreach($array as $value){	   
-	 $unsVal = unserialize($value);
-	 $unsVal->getUser();
-	 } -->
     
 </html>
 

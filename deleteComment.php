@@ -18,23 +18,36 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 // Delete comment from Comment table
+// $time = $_SESSION["timestamp"];
+
 $time = $_SESSION["timestamp"];
+echo "Timestamp: " . $time . "<br>";
+var_dump($time);
+$userComment = $_SESSION["userComment"];
+echo "UserComment: " . $userComment . "<br>";
+var_dump($userComment);
+$user = $_SESSION["user"];
+echo "User: " . $user . "<br>";
+var_dump($user);
 
 // Check if comment is written by current user
-
-if ($_SESSION["user"] == $_SESSION["userComment"]
+//if ($userComment == $user){
 
 $delComm = "DELETE FROM commentsObj WHERE time='$time'";
-
-if ($conn->query($delComm) === TRUE) {
+if ($conn->query($delComm) == TRUE) {
     echo "Comment deleted successfully <br>";
 } else {
     echo "Error deleting comment <br>" . $conn->error;
 }
+//}
+/* header("Location: recipeMeatballsDynamic.php");
+ * exit();*/
 
-echo 	"Current user according to SESSION: " . $_SESSION["user"];
-echo 	"Comment timestamp according to SESSION: " . $_SESSION["timestamp"];
+/* echo 	"Current user according to SESSION: " . $_SESSION["user"];
+ * echo 	"Comment timestamp according to SESSION: " . $_SESSION["timestamp"];
+ * echo 	"Comment timestamp according to REQUEST: " . $_REQUEST["userComment"];*/
 // $checkAdded = "SELECT * FROM " . $userDB;
-
+header('Location: recipeMeatballsDynamic.php');
+exit();
 
 ?>

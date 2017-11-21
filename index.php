@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
@@ -10,7 +11,7 @@
   <body>
     <div class="header">
       <div>
-	<a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+	<a href="index.php"><img src="images/logo.png" alt="Logo"></a>
       </div>
     </div>
     <div class="body">
@@ -21,18 +22,18 @@
 	      <a href="index.html">Home</a>
 	    </li>
 	    <li>
-	      <a href="calendar.html"> Calendar</a>
+	      <a href="calendar.php"> Calendar</a>
 	    <li>
 	      <a href="recipePancakes.html">Pancakes</a>
 	    </li>
 	    <li>
-	      <a href="recipeMeatballsDynamicLoggedOut.php">Meatballs</a>
+	      <a href="recipeMeatballsDynamic.php">Meatballs</a>
 	    </li>
 	  </ul>
 	</div>
 	<div class="body">
 	  <div>
-	    <a href="index.html"><img src="images/turkey.jpg" alt="Image"></a>
+	    <a href="index.php"><img src="images/turkey.jpg" alt="Image"></a>
 	  </div>
 	  <p> A warm welcome to this delicious recipe site. We will soon have the
 	    forum working for you to add comments about how it was to use our recipes.
@@ -45,12 +46,12 @@
 	<div class="footer">
 	  <ul>
 	    <li>
-	      <h2><a href="calendar.html">Food Calendar</a></h2>
-	      <a href="calendar.html"><img src="images/featured.jpg" alt="Image"></a>
+	      <h2><a href="calendar.php">Food Calendar</a></h2>
+	      <a href="calendar.php"><img src="images/featured.jpg" alt="Image"></a>
 	    </li>
 	    <li>
-		<h2><a href="recipeMeatballsDynamicLoggedOut.php">Meatballs</a></h2>
-	      <a href="recipeMeatballsDynamicLoggedOut.php"><img src="/images/meatballsAbsolute.jpg" alt="Image"></a>
+	      <h2><a href="recipeMeatballsDynamic.php">Meatballs</a></h2>
+	      <a href="recipeMeatballsDynamic.php"><img src="/images/meatballsAbsolute.jpg" alt="Image"></a>
 	    </li>
 	  </ul>
 	  <ul>

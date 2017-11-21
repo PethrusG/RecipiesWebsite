@@ -15,15 +15,15 @@ class Comment {
     }
 
     function getUser() {
-	echo $this->user . "<br>";
+	return $this->user;
     }
     
     function getComment() {
-	echo $this->comment . "<br>";
+	return $this->comment;
     }
     
     function getTimestamp() {
-	echo $this->timestamp . "<br>";
+	return $this->timestamp;
     }
     function getUserComment() {
 	$array = array(
@@ -32,7 +32,7 @@ class Comment {
 	/* $array = array(
 	   "kalle" => "lingon",
 	   );*/
-	print_r($array);
+	return $array;
 
     }
 }

@@ -23,3 +23,40 @@ Chronology  User  Comment CommentID
       6. Alla kommentarer hämtas upp från databasen och visas i webbläsaren.
         - Hämtas kanske genom någon form av loop i databasen?
         - echo "<html något> kommentar </html något>"
+
+Återstående problem:
+* Se till att användare bara kan deleta sina egna kommentarer och ingen annans.
+* Sätt in inloggningsknappar på båda receptsidor.
+* Ha en loginsida och en registreringssida.
+* Se till att programmet verkligen följer den uttänkta logiken:
+  1. Ej inloggad:
+     Det enda dynamiska är att kommentarerna hämtas upp från databaserna.
+  2. Tryck "logga in":
+     Kommer till inloggningsfönstret
+     Skriver in sitt användarnamn och lösenord.
+     Om ej rätt, frågas man igen om sitt lösenord i samma fönster.
+     Om rätt, kommer man till den receptsida man var på, nu med möjlighet
+     att själv skriva och ta bort kommentarer.
+     Denna möjlighet finns kvar om man går till den andra receptsidan eller någon
+     av alla sidor på sajten. "session_start()" måste alltså läggas till på alla
+     sidor, även de som inte ändras när man är inloggad. Tror session_start() kan
+     vara igång även om ingen är inloggad.
+  3. Tryck "registrera ny användare"
+     Ny användare registreras, oavsett om samma redan finns. Finns samma får man
+     fler lösenord (just nu).
+     Man kommer till den receptsida man var på och logiken följer nu ovanstående.
+* Se till att det finns två olika tabeller i databasen med kommentarer för varje
+  receptsida (implementera den ena HELT KLART först).
+IMORGON:
+Implementera deletion enbart av egna kommentarer.
+Lägg in alla knappar och de sidor som saknas i vyn. Strunta i hur det ser ut.
+Gå igenom logiken och se till att varje steg fungerar.
+Se till att båda recepten har kommenteringsfunktionerna.
+Om, tid, försök justera utseendet. (Kanske extra CSS som "overridar" tidigare och
+flyttar på sånt du benämnt med "classname" så det ser bättre ut?
+
+EFTER SEMINARIET:
+* Skriva i kommentarer måste funka
+* Delete bara vid egna kommentarer
+* Kommentarer med tabeller för båda receptsidor, registerUser "back" för båda sidor
+  
