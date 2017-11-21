@@ -19,12 +19,12 @@
 	<div class="header">
 	  <ul>
 	    <li class="current">
-	      <a href="index.html">Home</a>
+	      <a href="index.php">Home</a>
 	    </li>
 	    <li>
 	      <a href="calendar.php"> Calendar</a>
 	    <li>
-	      <a href="recipePancakes.html">Pancakes</a>
+	      <a href="recipePancakesDynamic.php">Pancakes</a>
 	    </li>
 	    <li>
 	      <a href="recipeMeatballsDynamic.php">Meatballs</a>
@@ -56,8 +56,8 @@
 	  </ul>
 	  <ul>
 	    <li>
-	      <h2><a href="recipePancakes.html">Pancakes</a></h2>
-	      <a href="recipePancakes.html"><img src="images/pancakesSmall.jpg" alt="Image"></a>
+	      <h2><a href="recipePancakesDynamic.php">Pancakes</a></h2>
+	      <a href="recipePancakesDynamic.php"><img src="images/pancakesSmall.jpg" alt="Image"></a>
 	    </li>
 	  </ul>
 	</div>
