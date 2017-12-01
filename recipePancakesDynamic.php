@@ -127,7 +127,7 @@
                                                        
                         // Delete buttons only to current user's comments
                           if ($value->getUser() == $currentUser . NULL) { 
-				echo '<input type="submit" value="Delete" name="delete">';
+                                echo '<input type="submit" value="Delete" name="delete">';
                                  $_SESSION["userComment"] = $value->getUser();
                        $_SESSION["timestamp"] = $value->getTimestamp();
                                                        } ?>
