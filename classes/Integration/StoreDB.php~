@@ -1,0 +1,92 @@
+<?php
+class StoreDB {
+
+    public $servername;
+    public $username;
+    public $password;
+    public $nameDB;
+    public $userTB;
+    public $commentTB;
+    public $conn;
+
+    public function __construct() {
+  	$this->servername = "localhost";
+	$this->username = "root";
+	$this->password = "MySQLPethrus15";
+	$this->nameDB = "recipies";
+	$this->userTB = "users";
+	$this->commentTB = "commentP";
+	$this->conn = $this->connectToDB();
+    }
+    
+    function connectToDB() {
+
+	// Make connection to database(DB)
+	$connection = new mysqli("localhost", "root", "MySQLPethrus15", "recipies");
+
+	// Check connection
+	if (!$connection) {
+	    die("Connection failed: " . mysqli_connect_error());
+	}
+	return $connection;
+    }
+
+    function retrieveComments() {
+	//	$connection = $this->conn;
+	$connection = $this->connectToDB();
+
+	$entries = $connection->prepare("SELECT comment FROM $this->commentTB");
+	$entries->execute();
+
+	$array = [];
+	foreach ($entries->get_result() as $row)	{
+	    $array[] = $row['comment'];
+	}
+
+	// Unserialize all object Comments
+	for ($i = 0; $i < count($array); $i++) {
+	    $arrayUns[$i] = unserialize($array[$i]);
+	}
+	return $arrayUns;
+    }
+
+    // Returns all comments and adds delete buttons to user's comments
+    function retrieveCommentsUser($user) {
+	$connection = $this->connectToDB();
+	$entries = $connection->prepare("SELECT comment FROM $this->commentTB");
+	$entries->execute();
+
+    }
+
+    function addComment($timestamp, $comment) {
+	$connection = $this->connectToDB();
+	$entries = $connection->prepare("INSERT INTO $this->commentTB (time, 
+                           comment) VALUES ('$timestamp', '$comment')");
+	$entries->execute();
+    }
+
+    function retrieveUserPassword($userName, $passwordReq) {
+	$connection = $this->connectToDB();
+	$entries = $connection->prepare("SELECT password FROM users WHERE 
+                                               name = '$userName';");
+	$entries->execute();
+	$array = [];
+	foreach ($entries->get_result() as $row) {
+	    $array[] = $row['password'];
+	}
+
+	if ($array[0] == $passwordReq)
+	    return TRUE;
+	else 
+	    return FALSE;
+    }
+
+    function deleteComment($timestamp) {
+	$connection = $this->connectToDB();
+	$entries = $connection->prepare("DELETE FROM $this->commentTB 
+                                        WHERE time='$timestamp'");
+	$entries->execute();
+    }
+}
+?>
+

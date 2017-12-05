@@ -1,53 +1,19 @@
-<?php session_start() ?>
 <?php 
-include_once 'Comment.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "MySQLPethrus15";
-$nameDB = "recipies";
-$userTB = "users";
-$commentTB = "comments";
+include_once 'classes/Model/Comment.php';
+include_once 'classes/Controller/Controller.php';
+include_once 'classes/Util/Util.php';
+include_once 'classes/Controller/SessionManager.php';
 
-// Make connection to database(DB)
-$conn = new mysqli($servername, $username, $password, $nameDB);
+Util::initRequest();
+$controller = SessionManager::getController();
 
-// Check connection
-if (!$conn) {
-    echo "No connection";
-    die("Connection failed: " . mysqli_connect_error());
-}
-// Delete comment from Comment table
-// $time = $_SESSION["timestamp"];
-
-$time = $_SESSION["timestamp"];
-echo "Timestamp: " . $time . "<br>";
-var_dump($time);
+$timestamp = $_SESSION["timestamp"];
 $userComment = $_SESSION["userComment"];
-echo "UserComment: " . $userComment . "<br>";
-var_dump($userComment);
-$user = $_SESSION["user"];
-echo "User: " . $user . "<br>";
-var_dump($user);
+$user = $controller->getCurrentUser();
+$controller->deleteComment($timestamp);
 
-// Check if comment is written by current user
-//if ($userComment == $user){
+include 'recipeMeatballsDynamic.php';
 
-$delComm = "DELETE FROM commentsObj WHERE time='$time'";
-if ($conn->query($delComm) == TRUE) {
-    echo "Comment deleted successfully <br>";
-} else {
-    echo "Error deleting comment <br>" . $conn->error;
-}
-//}
-/* header("Location: recipeMeatballsDynamic.php");
- * exit();*/
-
-/* echo 	"Current user according to SESSION: " . $_SESSION["user"];
- * echo 	"Comment timestamp according to SESSION: " . $_SESSION["timestamp"];
- * echo 	"Comment timestamp according to REQUEST: " . $_REQUEST["userComment"];*/
-// $checkAdded = "SELECT * FROM " . $userDB;
-header('Location: recipeMeatballsDynamic.php');
-exit();
-
+SessionManager::storeController($controller);
 ?>

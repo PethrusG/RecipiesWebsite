@@ -8,47 +8,26 @@
 	<title> Register new user </title>
     </head>
     <body>
-	<?php
-	include_once 'Comment.php';
-	
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      <?php
+      include_once 'classes/Model/Comment.php';
+      include_once 'classes/Controller/Controller.php';
+      include_once 'classes/Controller/SessionManager.php';
 
-	    $newUserName = $_REQUEST['newUserName'];
-	    $newPassword = $_REQUEST['newPassword'];
+      $controller = SessionManager::getController();
+      
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-	    // Set session variables
-	    $_SESSION["user"] = $newUserName;	    	
-	}
+	  $newUserName = $_REQUEST['newUserName'];
+	  $newPassword = $_REQUEST['newPassword'];
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "MySQLPethrus15";
-	$nameDB = "recipies";
-	$userTB = "users";
-	$commentTB = "comments";
+	  // Set session variables
+	  $_SESSION["user"] = $newUserName;	    	
+      }
 
-	// Make connection to database(DB)
-	$conn = new mysqli($servername, $username, $password, $nameDB);
-
-	// Check connection
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
-	}
-
-	// Add new user to table
-	$addUser = "INSERT INTO $userTB (name, password) VALUES
-        ('$newUserName', '$newPassword')";
-
-	if ($conn->query($addUser) === TRUE) {
-	    // echo "User added successfully <br>";
-	} else {
-	    // echo "Error adding user: <br>" . $conn->error;
-	}
-
-	// echo	"Current user according to SESSION: " . $_SESSION["user"];
-
-	?>
-	<h3> Welcome <?php $_SESSION["user"] ?>, you're now registered! </h3>
+      $controller->registerUser($newUserName, $newPassword);
+      SessionManager::storeController($controller);
+      ?>
+      <h3> Welcome <?php $_SESSION["user"] ?>, you're now registered! </h3>
 	<form action = "recipeMeatballsDynamic.php">
 	    <input type ="submit" value = "Back to recipies">
 	</form>

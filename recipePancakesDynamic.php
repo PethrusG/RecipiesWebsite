@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
@@ -81,60 +80,44 @@
               </div>
                         
               <?php
-              include_once 'Comment.php';
 
-              $servername = "localhost";
-              $username = "root";
-              $password = "MySQLPethrus15";
-              $nameDB = "recipies";
-              $userTB = "users";
-              $commentTB = "commentP";
+//	      session_start();
+	    include_once 'classes/Model/Comment.php';
+// 	      include_once 'classes/Integration/StoreDB.php';
+	    include_once 'classes/Controller/Controller.php';
+	    include_once 'classes/Util/Util.php';
+	    include_once 'classes/Controller/SessionManager.php';
 
-              $currentUser = $_SESSION["user"];
-              //        echo "CURRENT USER SESSION: " . $currentUser;
+	    Util::initRequest();
+//              $currentUser = $_SESSION["user"];
+	    $controller = SessionManager::getController();
+	    $comments = $controller->retrieveCommentsP();
+	    $currentUser = $controller->getCurrentUser();
 
-              // Make connection to database(DB)
-              $conn = new mysqli($servername, $username, $password, $nameDB);
+	    // Display comments with user to the browser
+	    foreach ($comments as $value){ ?>
+		<div>
+		  <form class ="comments" action="deleteCommentP.php" method="post">
+		    <input type="hidden" value="<?php $value->getTimestamp(); ?>"
+			    name="timestamp">
+		    <input type="hidden" value="<?php $value->getUser(); ?>
+				"name="userComment"><?php    
+			echo "<i><h4>" . $value->getUser() . " </h4>";
+			echo  $value->getComment() . " </i>";
 
-              // Check connection
-              if (!$conn) {    
-                  die("Connection failed: " . mysqli_connect_error());
-              }
+		    // Delete buttons only to current user's comments
+			if ($value->getUser() == $currentUser . NULL) { 
+			    echo '<input type="submit" value="Delete" name="delete">';
+				$_SESSION["userComment"] = $value->getUser();
+		    $_SESSION["timestamp"] = $value->getTimestamp();
+			}
+		SessionManager::storeController($controller);
+						    ?>
 
-              // Retrieve all object of type Comment from DB
-              $commentsFromDB = $conn->prepare("SELECT comment FROM $commentTB");
-              $commentsFromDB->execute();
-              $array = [];
-              foreach ($commentsFromDB->get_result() as $row)        {
-                  $array[] = $row['comment'];
-              }
-              //   $array = $_SESSION["Comments"];
-              // Unserialize all object Comments from DB
-              $arrayUns = [];
-              for ($i = 0; $i < count($array); $i++){
-                  $arrayUns[$i] = unserialize($array[$i]);
-              }
-
-              // Display comments with user to the browser
-              foreach ($arrayUns as $value){ ?>
-            <div> <form class ="comments" action="deleteCommentP.php" method="post">
-                      <input type="hidden" value="<?php $value->getTimestamp(); ?>"
-                             name="timestamp">
-                      <input type="hidden" value="<?php $value->getUser(); ?>
-                                   "name="userComment"><?php    
-                         echo "<i><h4>" . $value->getUser() . " </h4>";
-                         echo  $value->getComment() . " </i>";
-                                                       
-                        // Delete buttons only to current user's comments
-                          if ($value->getUser() == $currentUser . NULL) { 
-                                echo '<input type="submit" value="Delete" name="delete">';
-                                 $_SESSION["userComment"] = $value->getUser();
-                       $_SESSION["timestamp"] = $value->getTimestamp();
-                                                       } ?>
-                  </form></div>
+		</form></div>
 
                   
-              <?php               } ?><br>
+              <?php } ?><br>
               <br>
               <form  action = "addCommentP.php" method="post">
                   <input type = "text" name="comment" value = "Add your comment here">  

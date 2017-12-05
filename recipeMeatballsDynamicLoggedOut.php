@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 ?>
@@ -85,49 +86,31 @@ session_start();
 	      </div>
 
 	      <?php
-	      include_once 'Comment.php';
-	      $servername = "localhost";
-	      $username = "root";
-	      $password = "MySQLPethrus15";
-	      $nameDB = "recipies";
-	      $userTB = "users";
-	      $commentTB = "comments";
-	      // Make connection to database(DB)
-	      $conn = new mysqli($servername, $username, $password, $nameDB);
+	      include_once 'classes/Model/Comment.php';
+	      include_once 'classes/Controller/Controller.php';
+	      include_once 'classes/Util/Util.php';
+	      include_once 'classes/Controller/SessionManager.php';
 
-	      // Check connection
-	      if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	      }
-
-	      // Retrieve all object of type Comment from DB
-	      $commentsFromDB = $conn->prepare("SELECT comment FROM commentsObj");
-	      $commentsFromDB->execute();
-	      $array = [];
-	      foreach ($commentsFromDB->get_result() as $row)	{
-		$array[] = $row['comment'];
-	      }
-
-
-
-	      // Unserialize all object Comments from DB
-	      $arrayUns = [];
-	      for ($i = 0; $i < count($array); $i++){
-		$arrayUns[$i] = unserialize($array[$i]);
-	      }
+	      Util::initRequest();
+	      $controller = SessionManager::getController();
+	      $comments = $controller->retrieveComments();
 
 	      // Display comments with user to the browser
-	      foreach ($arrayUns as $value){ ?>
+	      foreach ($comments as $value){ ?>
 		<div> <form class ="comments" action="deleteComment.php">
-		  <input type="hidden" value="<?php $value->getTimestamp(); ?>"
+		  <input type="hidden" value="<?php $value->getTimestamp();
+					      ?>"
 			 name="timestamp">
-		  <input type="hidden" value="<?php $value->getUser(); ?>"name="userComment">
+		  <input type="hidden" value="<?php $value->getUser();
+					      ?>"name="userComment">
 		</form></div>
 
 		<i> <h4><?php  echo  $value->getUser(); ?> </h4>
 		  <?php  echo  $value->getComment(); ?> </i><?php
+							    }
+		SessionManager::storeController($controller);					   
+							   ?><br>
 							    } ?><br>
-
 		<form action = "loginUser.php">
 		  <h4> Login to add a comment! </h4>
 		  <input type ="submit" value = "Login">
