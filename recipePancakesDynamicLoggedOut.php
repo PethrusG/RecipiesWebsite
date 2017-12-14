@@ -88,7 +88,6 @@
 	      Util::initRequest();
 	      $controller = SessionManager::getController();
 	      $comments = $controller->retrieveCommentsP();
-	      var_dump($comments);
 
 	      // Display comments with user to the browser
 	      foreach ($comments as $value){ ?>

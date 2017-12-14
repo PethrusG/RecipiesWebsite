@@ -11,6 +11,9 @@ session_start();
     <title>Swedish Meatballs</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/styleFeatured.css">
+    <script type="text/javascript"
+	    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type ="text/javascript" src="recipes.js" ></script>
   </head>
   <body>
     <div class="header">
@@ -85,32 +88,13 @@ session_start();
 	      <div>
 	      </div>
 
+	      <div id ="commentList" >
+	      </div>
 	      <?php
-	      include_once 'classes/Model/Comment.php';
-	      include_once 'classes/Controller/Controller.php';
 	      include_once 'classes/Util/Util.php';
-	      include_once 'classes/Controller/SessionManager.php';
-
 	      Util::initRequest();
-	      $controller = SessionManager::getController();
-	      $comments = $controller->retrieveComments();
-
-	      // Display comments with user to the browser
-	      foreach ($comments as $value){ ?>
-		<div> <form class ="comments" action="deleteComment.php">
-		  <input type="hidden" value="<?php $value->getTimestamp();
-					      ?>"
-			 name="timestamp">
-		  <input type="hidden" value="<?php $value->getUser();
-					      ?>"name="userComment">
-		</form></div>
-
-		<i> <h4><?php  echo  $value->getUser(); ?> </h4>
-		  <?php  echo  $value->getComment(); ?> </i><?php
-							    }
-		SessionManager::storeController($controller);					   
 							   ?><br>
-							    } ?><br>
+		<br>
 		<form action = "loginUser.php">
 		  <h4> Login to add a comment! </h4>
 		  <input type ="submit" value = "Login">

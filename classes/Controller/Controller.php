@@ -4,8 +4,9 @@
 /* namespace \classes\Controller*/
 
 include 'classes/Integration/StoreDB.php';
+include_once 'classes/Model/Comment.php';
 
-class Controller {
+class Controller implements \JsonSerializable  {
     public $db;
     public $user;
 
@@ -30,6 +31,12 @@ class Controller {
     function retrieveComments() {
 	//	$this->db = new StoreDB();
 	return $this->db->retrieveComments();
+    }
+
+    function retrieveCommentsJS() {
+	//	$this->db = new StoreDB();
+	$dbComments = $this->db->retrieveComments();
+	return json_encode($dbComments[0]);
     }
 
     function retrieveCommentsP() {
@@ -83,6 +90,13 @@ class Controller {
 	// Låt denna funktion avgöra vilka kommentarer som visas med deleteknappar.
 
     }
+
+    public function jsonSerialize() {
+	$json_obj = new \stdClass;
+	$json_obj->user = $this->user;
+	return $json_obj;
+    }
+  
 }
 
 ?>

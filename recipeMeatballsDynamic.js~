@@ -1,0 +1,12 @@
+$(document).ready(function() {
+    // Blablabla
+//    $(".comments").html().append("<h4> FÖRSTA KOMMISEN </h4>");
+    $("#commentList").append("<h4> FÖRSTA KOMMISEN </h4>");
+    $.getJSON("retrieveCommentsJS.php", function(entry) {
+	$("#commentList").append(entry);
+    });
+    $("#submitComment").click(function() {
+	$.post("addCommentJS.php", "comment=" + $("#comment").val());
+	$("#comment").val("");
+    });
+});

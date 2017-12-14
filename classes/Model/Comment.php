@@ -1,6 +1,6 @@
 <?php
 
-class Comment {
+class Comment implements \JsonSerializable {
     public $user;
     public $comment;
     public $timestamp;
@@ -43,6 +43,14 @@ class Comment {
 	    $arrayUns[$i] = unserialize($array[$i]);
 	}
 	return $arrayUns;
+    }
+
+    public function jsonSerialize() {
+	$json_obj = new \stdClass;
+	$json_obj->user = $this->user;
+	$json_obj->comment = $this->comment;
+	$json_obj->timestamp = $this->timestamp;
+	return $json_obj;
     }
   
 }

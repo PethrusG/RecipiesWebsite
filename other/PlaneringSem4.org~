@@ -1,0 +1,23 @@
+* Tisdag
+** Kommentar kan skrivas in och lagras sedan i databasen
+** Härnäst, Logged-out-funktionalitet:
+*** Hämta upp kommentarer från databasen och visa på skärmen
+Kom ihåg att detta görs MED HJÄLP AV PHP-funktioner. Vi behöver
+alltså inte implementera all funktionalitet i PHP. Vad vi behöver är:
++ Använda .getJSON för att kalla på en PHP-rutin på servern som
+    hämtar vår array med kommentarer.
++ PHP-rutinen behöver skräddarsys så att den skickar *JSON-kod tillbaka*
+    istället för som nu, ett kommentarobjekt.
++ Det måste tänkas igenom HUR allt ska visas på skärmen. 
+    - Loopa igenom array med JSON-objektkommentarer?
++ Kan börja med att bara skicka EN kommentar tillbaka och visa den.
+*** Efter lunch:
++ Få JSON-array som du itererar över för att visa alla kommentarer
+  - Kolla exemplet i chat.js
++ Fortsätt sedan med delete-knappar som beskrivs nedan
+** Och efter det, Logged-in-funktionalitet:
++ Visa deleteknappar BARA VID användarens kommentarer.
++ Se till att kommentarer deletas och kommentarerna uppdateras igen.
++ Implementera klart att lägga till kommentarer.
+** Till sist: 
++ Se till att all funktionalitet finns i båda recepten, både in- och utloggad.

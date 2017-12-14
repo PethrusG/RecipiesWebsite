@@ -6,6 +6,9 @@
     <title>Swedish Pancakes</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/styleFeatured.css">
+    <script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type ="text/javascript" src="recipes.js" ></script>
   </head>
   <body>
     <div class="header">
@@ -79,55 +82,24 @@
                 </ol>
               </div>
                         
+	      <div id ="commentList" >
+	      </div>
               <?php
-
-//	      session_start();
-	    include_once 'classes/Model/Comment.php';
-// 	      include_once 'classes/Integration/StoreDB.php';
-	    include_once 'classes/Controller/Controller.php';
 	    include_once 'classes/Util/Util.php';
-	    include_once 'classes/Controller/SessionManager.php';
-
 	    Util::initRequest();
-//              $currentUser = $_SESSION["user"];
-	    $controller = SessionManager::getController();
-	    $comments = $controller->retrieveCommentsP();
-	    $currentUser = $controller->getCurrentUser();
-
-	    // Display comments with user to the browser
-	    foreach ($comments as $value){ ?>
-		<div>
-		  <form class ="comments" action="deleteCommentP.php" method="post">
-		    <input type="hidden" value="<?php $value->getTimestamp(); ?>"
-			    name="timestamp">
-		    <input type="hidden" value="<?php $value->getUser(); ?>
-				"name="userComment"><?php    
-			echo "<i><h4>" . $value->getUser() . " </h4>";
-			echo  $value->getComment() . " </i>";
-
-		    // Delete buttons only to current user's comments
-			if ($value->getUser() == $currentUser . NULL) { 
-			    echo '<input type="submit" value="Delete" name="delete">';
-				$_SESSION["userComment"] = $value->getUser();
-		    $_SESSION["timestamp"] = $value->getTimestamp();
-			}
-		SessionManager::storeController($controller);
-						    ?>
-
-		</form></div>
-
-                  
-              <?php } ?><br>
+	      ?>
+	      <textarea id="comment" name="commentName" placeholder="Your comment" >
+	      </textarea>
+	      <button id="submitComment">Submit Comment</button>
               <br>
-              <form  action = "addCommentP.php" method="post">
-                  <input type = "text" name="comment" value = "Add your comment here">  
-                  <input type ="submit" value ="Submit comment">
-              </form>
+              <!-- <form  action = "addCommentP.php" method="post">
+                   <input type = "text" name="comment" value = "Add your comment here">  
+                   <input type ="submit" value ="Submit comment">
+		   </form> -->
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
 

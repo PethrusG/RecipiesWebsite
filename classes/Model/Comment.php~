@@ -33,7 +33,17 @@ class Comment {
 	   "kalle" => "lingon",
 	   );*/
 	return $array;
-
     }
+
+    function unserializeComments($arr) {
+
+	// Unserialize all object Comments from DB
+	$arrayUns = [];
+	for ($i = 0; $i < count($array); $i++){
+	    $arrayUns[$i] = unserialize($array[$i]);
+	}
+	return $arrayUns;
+    }
+  
 }
 ?>
